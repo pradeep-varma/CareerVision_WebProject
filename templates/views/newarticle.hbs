@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{>link}}
+    </head>
+    <body>
+        {{>header}}
+        <a href="/blog" class="btn btn-primary">ALL ARticles</a>
+        <form action='/blog/new' method='POST'>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" name="title" class="form-control" id="title1">
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" name="description" id="exampleFormControlTextarea1"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">markdown</label>
+    <textarea class="form-control" name="markdown" id="textarea"></textarea>
+  </div>
+  <button type="submit" class="btn btn-secondary">Add</button>
+  <a href="/" class="btn btn-danger">Cancel</a>
+</form>
+<script>
+    var textarea = document.getElementById("textarea");
+var limit = 250;
+
+textarea.oninput = function() {
+  textarea.style.height = "";
+  textarea.style.height = Math.min(textarea.scrollHeight, limit) + "px";
+};
+</script>
+    </body>
+</html>

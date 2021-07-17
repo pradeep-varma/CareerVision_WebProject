@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{>link}}
+    </head>
+    <body>
+        {{>header}}
+         <div class='container'>
+        <h1 class="mb-4">
+           {{post.title}}
+        </h1>
+        <div class="text-muted mb-2">
+          <img src="{{post.imageurl}}">
+        </div>
+        <div class="text-muted mb-3">
+            {{post.description}}
+        </div>
+        {{#each post.course}}
+            <div class="text-muted mb-3">
+                {{this.classname}}
+                {{this.classdescription}}
+                {{this.classlinks}}
+            </div>
+        {{/each}}
+
+
+    </div>
+    </body>
+</html>

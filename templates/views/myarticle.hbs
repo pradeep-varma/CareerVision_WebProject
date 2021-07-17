@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{>link}}
+        <style>
+             body {
+     font-family: 'Rubik', sans-serif;
+     height: 100% !important;
+     background-color: #3F51B5 !important
+ }
+
+ #star {
+     margin-left: -5px !important;
+     vertical-align: bottom !important;
+     opacity: 0.5
+ }
+
+ .more {
+     opacity: 0.5 !important
+ }
+
+ .btn:hover {
+     color: black !important
+ }
+
+ .vl {
+     margin: 8px !important;
+     width: 2px;
+     border-right: 1px solid #aaaaaa;
+     height: 25px
+ }
+
+ #plus {
+     opacity: 0.8
+ }
+
+ .card {
+     border-radius: 10px !important
+ }
+
+ .btn-outlined:active {
+     color: #FFF;
+     border-color: #fff !important
+ }
+
+ img {
+     cursor: pointer;
+     overflow: visible
+ }
+
+ .btn:focus,
+ .btn:active {
+     outline: none !important;
+     box-shadow: none !important
+ }
+
+ .container {
+     margin-top: 30px !important
+ }
+        </style>
+    </head>
+    <body>
+        {{>header}}
+        <div class="container-fluid color">
+                <a href="/blog" class="btn btn-primary">ALL ARTICLES</a>
+             <a href="/blog/new/" class="btn btn-primary">New Article</a>
+        <a href="/blog/article/my/" class="btn btn-primary">MY ARTICLES</a>
+        
+        </div>
+         <div class="container">
+             {{#each post}}
+     <div class="card mt-3 border-5 pt-2 active pb-0 px-3">
+         <div class="card-body ">
+             <div class="row">
+                 <div class="col-12 ">
+                     <h4 class="card-title "><b>{{this.title}}</b></h4>
+                 </div>
+                 <div class="col">
+                     <h6 class="card-subtitle mb-2 text-muted">
+                         {{this.createdAt}}
+                   </h6>
+                   <h6 class="card-subtitle mb-2 text-muted">
+                       Author:{{this.name}}
+                       
+                   </h6>
+                 </div>
+             </div>
+         </div>
+         <div class="card-footer bg-white px-0 ">
+             <div class="row">
+                 <div class="col-md-auto ">
+                     <a href="/blog/{{this.id}}" class="btn btn-primary">Read more</a>
+                 <a href="/blog/edit/{{this.id}}" class="btn btn-secondary">EDIT</a>
+                 <form action="/blog/{{this.id}}?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                
+                 </div>
+             </div>
+         </div>
+     </div>
+     {{/each}}
+ </div>
+    </body>
+</html>

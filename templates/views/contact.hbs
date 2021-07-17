@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{>link}}
+    </head>
+    <body>
+        {{>header}}
+        <div class="container my-3 mx-3 px-2">
+            <h1>Contact Us</h1>
+            <p>Recommend any suggestions to improve content and If u felt any data is wrong please tell me</p>
+        <div class="form-group">
+            <form action='/contact' method='POST'>
+    <label for="exampleFormControlTextarea1">Review</label>
+    <textarea class="form-control" name="comment" id="textarea" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Comment</button>
+  <a href="/" class="btn btn-danger">Leave</a>
+  </form>
+        </div>
+
+        <script>
+                var textarea = document.getElementById("textarea");
+var limit = 350;
+
+textarea.oninput = function() {
+  textarea.style.height = "";
+  textarea.style.height = Math.min(textarea.scrollHeight, limit) + "px";
+};
+
+            </script>
+    </body>
+</html>
